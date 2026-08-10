@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hypercrafts</title>
+
+  <!-- Link to your CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Link to your PWA manifest -->
+  <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+  <!-- Your game canvas -->
+  <canvas id="game" width="600" height="400"></canvas>
+
+  <!-- Your game code -->
+  <script src="game.js"></script>
+
+  <!-- SERVICE WORKER DISABLED FOR DEVELOPMENT -->
+  <!--
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(() => console.log('Service Worker registered'))
+        .catch(err => console.error('Service Worker failed:', err));
+    }
+  </script>
+  -->
+
+</body>
+</html>
+
+<body>
+
+  <button id="downloadBtn" style="display:none;">
+    Download Hypercrafts Launcher
+  </button>
+
+  <script>
+    // Detect if running as PWA
+    const isPWA = window.matchMedia('(display-mode: standalone)').matches 
+                  || window.navigator.standalone;
+
+    // Show button ONLY if NOT installed
+    if (!isPWA) {
+      document.getElementById('downloadBtn').style.display = 'block';
+    }
+  </script>
+
+</body>
+
